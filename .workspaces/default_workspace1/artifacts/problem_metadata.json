@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "money",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "setter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"problem_2018.sol": "problem"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"problem_2018.sol": {
+			"keccak256": "0x1fd07b7561c5c780825429fb1275aa3976449bed07baeb41de05f038b02887f4",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6d1c6ba84dca69fc62bd420aa476644c7214c8a6545213d54985813303d3cd82",
+				"dweb:/ipfs/Qmcg5nxWSdovjbpd7fRbWW4xNiUBVqPjViGSwvtzYDwaSJ"
+			]
+		}
+	},
+	"version": 1
+}
