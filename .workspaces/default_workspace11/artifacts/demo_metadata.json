@@ -7,75 +7,45 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "changeClassToBusiness",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "changeClassToEcomomic",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "changeClassToFirst",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
+				"name": "getBalance",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
-				"name": "data",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getter",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "block_no",
+						"type": "uint256"
 					},
 					{
-						"internalType": "string",
-						"name": "destination",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
 					},
 					{
-						"internalType": "string",
-						"name": "class",
-						"type": "string"
+						"internalType": "address",
+						"name": "msgSender",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_passportId",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "_destination",
-						"type": "string"
-					}
-				],
-				"name": "setter",
+				"inputs": [],
+				"name": "payEther",
 				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "payable",
 				"type": "function"
 			}
 		],
@@ -92,7 +62,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Task01(struct-map).sol": "demo"
+			"payable.sol": "demo"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -106,12 +76,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Task01(struct-map).sol": {
-			"keccak256": "0x8fefc824824c71b35af6a12e67d846559398aa4dfab8e301a97dddc2aaf183f1",
+		"payable.sol": {
+			"keccak256": "0xb4fe191bfe1e3fb52fa6879ace0c95f8ddbfe1851aebf3068f1c24649e2eaa02",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://50a5e32e90a48b57a66b529f3993297edc184a540d33efbdf00c666fcd4a90bb",
-				"dweb:/ipfs/QmbebEUpiHiGbmMt9pbm2EApyc4ufFTh7zabUbcavorntn"
+				"bzz-raw://35828201cadbac6066f0b092dc32e568f60b3c0c12ee2ea8c9f5491345938d2a",
+				"dweb:/ipfs/QmSvbZrJqa1JhZABpHcrAPLdMBNrZrwUNzRW4hpGPwcZi9"
 			]
 		}
 	},

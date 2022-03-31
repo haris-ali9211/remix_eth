@@ -19,16 +19,11 @@ contract AirlineTickets {
 
     uint convert;
     string realVal = "Economy Class";
-    uint eth;
     uint cost;
+
 
     //payment
     uint public oneWei = 1 wei;
-    uint public oneEth = 1 ether/1e18;
-    uint public costTry = oneEth/5e14;
-    // uint public ecoClassCost = oneWei * 5e15;
-    // uint public firstClassCost = oneWei * 5e15;
-    // uint public busClassCost = oneWei * 5e15;
 
     mapping (address => User) public data;
 
@@ -36,41 +31,35 @@ contract AirlineTickets {
 
     function economyClass() public 
     {
-        // require(!booked, "you have already book a class");
         u1= classTypes.economyClass;
         convert = uint(u1);
         if(convert==1)
         {
             realVal = "Economy Class";
-            cost = oneWei * 5e14;
-            // eth = 1;
+            cost = oneWei * 5e15;
         }
         booked = true;
     }
     
     function firstClass() public 
     {
-        // require(!booked, "you have already book a class");
         u1= classTypes.firstClass;
         convert = uint(u1);
         if(convert==0)
         {
             realVal = "First Class";
-            cost = oneWei * 1e15;
-            // eth = 2;
+            cost = oneWei * 1e16;
         }
         booked = true;
     }
 
     function busnissClass() public {
-        // require(!booked, "you have already book a class");
         u1= classTypes.busnissClass;
         convert = uint(u1);
         if(convert==2)
         {
             realVal = "Busniss Class";
-            cost = oneWei * 7e14;
-            // eth = 3;
+            cost = oneWei * 7e15;
         }
         booked = true;
     }

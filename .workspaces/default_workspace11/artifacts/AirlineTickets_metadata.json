@@ -7,22 +7,14 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "busnissClass",
-				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
+				"type": "constructor"
 			},
 			{
 				"inputs": [],
-				"name": "costTry",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
+				"name": "busnissClass",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -59,6 +51,16 @@
 						"internalType": "uint256",
 						"name": "cost",
 						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "booked",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "confrim",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -80,12 +82,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "oneEth",
+				"name": "owner",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -93,12 +95,19 @@
 			},
 			{
 				"inputs": [],
-				"name": "oneWei",
+				"name": "payment",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "see",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -126,19 +135,6 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "u1",
-				"outputs": [
-					{
-						"internalType": "enum AirlineTickets.classTypes",
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -154,7 +150,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"bootcampquiz.sol": "AirlineTickets"
+			"finalBlockship.sol": "AirlineTickets"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -168,12 +164,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"bootcampquiz.sol": {
-			"keccak256": "0xbac1e8d29caa1e918e5b52a3b37fabb02ec220c08ffc3efdbf577b39f9811b9d",
+		"finalBlockship.sol": {
+			"keccak256": "0x5182029bdd3772d4b7f7e75723f1d2ae01bc612cdead2d9083b534b6b79fe7ee",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9e09f981513e7531920a6a23f4a1c79e82c5ce53a39374f09efee4e0383edea1",
-				"dweb:/ipfs/QmeAthqD2p2zDzjksayGUFxNncbp37gawadCx7N2Bbrppg"
+				"bzz-raw://d264c2bf3786bac713bb5a76564fdfb05c5c617c2b884d0752776817976e740b",
+				"dweb:/ipfs/QmfYabven7gHMi5Poxac4VTwcDFeDZFznEPV5s7b4LEEzn"
 			]
 		}
 	},
