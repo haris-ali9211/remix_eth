@@ -4,6 +4,14 @@ pragma solidity >=0.8.0 <0.9.0;
 
 contract AirlineTickets {
 
+    address public owner;
+    address public user;
+    
+    constructor() {
+        owner = payable(0xdD870fA1b7C4700F2BD7f44238821C26f7392148);
+        user = msg.sender;
+    }
+
     struct User 
     {
         string name;
@@ -28,6 +36,20 @@ contract AirlineTickets {
     mapping (address => User) public data;
 
     classTypes public u1= classTypes.economyClass;
+
+
+    // function getter() public view returns(uint block_no, uint timestamp, address msgSender)
+    // {
+    //     return(block.number, block.timestamp, msg.sender);
+        
+    // }
+
+    function payment() public payable
+    {
+        require(msg.value >= data[msg.sender].cost);
+        // require(address(user).balance >= data[user].cost);
+        payable(owner).transfer(msg.value);
+    }
 
     function economyClass() public 
     {

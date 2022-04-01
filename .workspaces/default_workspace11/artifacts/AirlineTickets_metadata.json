@@ -51,16 +51,6 @@
 						"internalType": "uint256",
 						"name": "cost",
 						"type": "uint256"
-					},
-					{
-						"internalType": "bool",
-						"name": "booked",
-						"type": "bool"
-					},
-					{
-						"internalType": "bool",
-						"name": "confrim",
-						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -82,6 +72,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "oneWei",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "owner",
 				"outputs": [
 					{
@@ -98,19 +101,6 @@
 				"name": "payment",
 				"outputs": [],
 				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "see",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -135,6 +125,32 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "u1",
+				"outputs": [
+					{
+						"internalType": "enum AirlineTickets.classTypes",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "user",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -150,7 +166,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"finalBlockship.sol": "AirlineTickets"
+			"blockship.sol": "AirlineTickets"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -164,12 +180,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"finalBlockship.sol": {
-			"keccak256": "0x5182029bdd3772d4b7f7e75723f1d2ae01bc612cdead2d9083b534b6b79fe7ee",
+		"blockship.sol": {
+			"keccak256": "0xf28e849ee5a6595c2a42bfe813c0b78112ae2d616760b8ee06b25c20e4ea0a8f",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d264c2bf3786bac713bb5a76564fdfb05c5c617c2b884d0752776817976e740b",
-				"dweb:/ipfs/QmfYabven7gHMi5Poxac4VTwcDFeDZFznEPV5s7b4LEEzn"
+				"bzz-raw://4944a86588c168a90f30a8880427ec23929162ba80187958afc5a206f865b94b",
+				"dweb:/ipfs/QmejJ1oUtZr3mqYrmU9Qaz2kd6DPtEQEhLbNYxfyWxAExE"
 			]
 		}
 	},
