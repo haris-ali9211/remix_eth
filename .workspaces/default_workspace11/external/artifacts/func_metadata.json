@@ -7,7 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getBalance",
+				"name": "f1",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -15,21 +15,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "payEther",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "sendEtherAccount",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -46,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"payable.sol": "demo"
+			"external/internal.sol": "func"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -60,12 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"payable.sol": {
-			"keccak256": "0xe09b60b5a5203e8bbdef17f8b7464dc64eb14aceb69296e9b181a6227949f3a8",
+		"external/internal.sol": {
+			"keccak256": "0x264e2992f3bf9575684659ce999dcb317cc0a7b9025bc729a3e75ad1328dbfad",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://19c28709103ef119c4d21bc0301a07df72f795650acbcd9765612dba17077e88",
-				"dweb:/ipfs/QmZH6nCNtHQ4e4cASe2Wgpz953Zsisb37kN9zDpGa1YP33"
+				"bzz-raw://3732e7ce485847c2c2957b5d3526f354e891a9533a936cc16335f9f98ea8642b",
+				"dweb:/ipfs/QmYCgEAsVvVgX6JiKg7qoprP495DH1Eufsk13EZSTz176C"
 			]
 		}
 	},
