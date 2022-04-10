@@ -22,6 +22,7 @@ contract crowdFunding
     }
 
     mapping(uint => Request) public requests;
+
     uint public numRequests;
 
 
@@ -76,6 +77,11 @@ contract crowdFunding
         newRequest.value = _value;
         newRequest.complete = false;
         newRequest.noOfVoters = 0;
+    }
+
+    function voteRequest(uint _reqestNo) public
+    {
+        require(contributors[msg.sender] > 0, "You must be Contributer");
     }
     
 }
