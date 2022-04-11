@@ -4,6 +4,7 @@ pragma solidity >=0.8.0 <0.9.0;
 contract crowdFunding
 {
     mapping( address => uint ) public contributors;
+
     address public manager;
     uint public minContributers;
     uint public deadline;
@@ -82,6 +83,20 @@ contract crowdFunding
     function voteRequest(uint _reqestNo) public
     {
         require(contributors[msg.sender] > 0, "You must be Contributer");
+        Request storage thisRequest = requests[_reqestNo];
+        require(thisRequest.voters[msg.sender] == false, "You already voted");
+        thisRequest.voters[msg.sender] = true;
+        thisRequest.noOfVoters++;
+    }
+
+    function makePayment(uint _reqestNo) public onlyManager
+    {
+        require(raisedAmount >= target,"Raised Amount is not Balance");
+        Request storage thisRequest = requests[_reqestNo];
+        require(thisRequest.complete == false,"Your request is complete");
+        require(thisRequest.noOfVoters > noOfContributers/2, "Majority does not support!!");
+        thisRequest.recipient.transfer(thisRequest.value);
+        thisRequest.complete = true;
     }
     
 }
