@@ -1,81 +1,87 @@
-//SPDX-License-Identifier: UNLICENSED
-pragma solidity >=0.5.0 < 0.9.0;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.0 <0.9.0;
 
-contract CrowdFunding{
-    mapping(address=>uint) public contributors; //contributors[msg.sender]=100
-    address public manager; 
-    uint public minimumContribution;
-    uint public deadline;
-    uint public target;
-    uint public raisedAmount;
-    uint public noOfContributors;
-    
-    struct Request{
-        string description;
-        address payable recipient;
-        uint value;
-        bool completed;
-        uint noOfVoters;
-        mapping(address=>bool) voters;
-    }
+contract MyToken 
+{
+    address admin;
 
-    mapping(uint=>Request) public requests;
-    uint public numRequests;
+    string public constant name = "TokenB";
+    string public constant symbol = "TB";
+    uint public totalSupply = 1000 ether;
+    uint256 public immutable decimals; 
+ 
+    event Transfer(address indexed recipient, address indexed to, uint amount);
+    event Allowance(address indexed from, address indexed to, uint amount);
     
-    constructor(uint _target,uint _deadline){
-        target=_target;
-        deadline=block.timestamp+_deadline; //10sec + 3600sec (60*60)
-        minimumContribution=100 wei;
-        manager=msg.sender;
-    }
-    
-    function sendEth() public payable{
-        require(block.timestamp < deadline,"Deadline has passed");
-        require(msg.value >=minimumContribution,"Minimum Contribution is not met");
-        
-        if(contributors[msg.sender]==0){
-            noOfContributors++;
-        }
-        contributors[msg.sender]+=msg.value;
-        raisedAmount+=msg.value;
-    }
-    function getContractBalance() public view returns(uint){
-        return address(this).balance;
-    }
-    function refund() public{
-        require(block.timestamp>deadline && raisedAmount<target,"You are not eligible for refund");
-        require(contributors[msg.sender]>0);
-        address payable user=payable(msg.sender);
-        user.transfer(contributors[msg.sender]);
-        contributors[msg.sender]=0;
-        
-    }
-    modifier onlyManger(){
-        require(msg.sender==manager,"Only manager can calll this function");
+    mapping(address=>uint) private balances;
+    mapping(address=>mapping(address=>uint)) private allowed;
+
+    constructor() 
+    {
+        admin = msg.sender;
+        balances[msg.sender] = totalSupply;
+        decimals = 18;
+    } 
+
+    modifier onlyAdmin()
+    {
+        require(msg.sender == admin,"You are not allowed to do that");
         _;
     }
-    function createRequests(string memory _description,address payable _recipient,uint _value) public onlyManger{
-        Request storage newRequest = requests[numRequests];
-        numRequests++;
-        newRequest.description=_description;
-        newRequest.recipient=_recipient;
-        newRequest.value=_value;
-        newRequest.completed=false;
-        newRequest.noOfVoters=0;
+
+    function balanceOf(address user) public view returns(uint)
+    {
+        return balances[user];
     }
-    function voteRequest(uint _requestNo) public{
-        require(contributors[msg.sender]>0,"YOu must be contributor");
-        Request storage thisRequest=requests[_requestNo];
-        require(thisRequest.voters[msg.sender]==false,"You have already voted");
-        thisRequest.voters[msg.sender]=true;
-        thisRequest.noOfVoters++;
+
+    function transfer(address reciever, uint amount) public returns(bool)
+    {
+        require(balances[msg.sender] >= amount,"You dont have enough tokens to transfer");
+        balances[msg.sender] -= amount; 
+        balances[reciever] += amount;
+
+        emit Transfer(msg.sender,reciever,amount);
+        return true;
     }
-    function makePayment(uint _requestNo) public onlyManger{
-        require(raisedAmount>=target);
-        Request storage thisRequest=requests[_requestNo];
-        require(thisRequest.completed==false,"The request has been completed");
-        require(thisRequest.noOfVoters > noOfContributors/2,"Majority does not support");
-        thisRequest.recipient.transfer(thisRequest.value);
-        thisRequest.completed=true;
+
+    function mint(uint quantity) public onlyAdmin returns(uint)
+    {
+        totalSupply += quantity;
+        balances[msg.sender] += quantity;
+        return totalSupply;
+    }
+
+    function burn(address user, uint amount) public onlyAdmin returns(uint) 
+    {
+        require(balances[user] >= amount,"You have enough tokens to burn");
+        balances[user] -= amount;
+        totalSupply -= amount;
+        return totalSupply;
+    }
+
+    function allowance(address _owner, address _spender) public view returns(uint)
+    {
+       return allowed[_owner][_spender]; 
+    }
+
+    function approval(address _spender, uint _value) public returns(bool success) 
+    {
+        allowed[msg.sender][_spender] = _value;
+         
+        emit Allowance(msg.sender,_spender,_value);
+        return true;
+    } 
+
+    function transferFrom(address _from, address _to, uint _value) public returns(bool success) 
+    {
+        uint allowedTokens = allowed[_from][msg.sender];
+        require(balances[_from] >= _value && allowedTokens>=_value);
+        balances[_to] += _value;
+        balances[_from] -= _value;
+        allowed[_from][msg.sender] -= _value;
+
+        emit Transfer(_from, _to, _value);
+        return true;
     }
 }
+
